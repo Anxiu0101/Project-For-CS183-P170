@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html class="no-js">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Listing</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="css/superfish.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- 老师css js -->
+	<!-- <link href="https://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- 引入 echarts.js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.5.4/echarts.min.js"></script> -->
+	<!-- 老师css js -->
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	<style type="text/css">
+		#div1 img{
+		  cursor: pointer;
+		  transition: all 0.6s;
+		}
+		#div1 img:hover{
+		  transform: scale(1.2);
+		}
+	</style>
+	<style>
+	i{color:aquamarine;}
+
+	</style>
+	
+	</head>
+	<body>
+	
+
+		
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+		<div id="fh5co-header">
+			<header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<h1 id="fh5co-logo"><a href="index.html">topic and advice</a></h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+								<li>
+									<a href="index.html">Home</a>
+								</li>
+								<li class="active">
+									<a href="listing.html" class="fh5co-sub-ddown">Listing</a>
+									<ul class="fh5co-sub-menu">
+										<li><a href="weibo.html" >WeiBo</a></li>
+										<li><a href="zhihu.html" >ZhiHu</a></li>
+									</ul>
+								</li>
+								<li class="active">
+									<a href="listing.html" class="fh5co-sub-ddown">Web</a>
+									<ul class="fh5co-sub-menu">
+										<li><a href="https://weibo.com/" target="_blank">WeiBo web</a></li>
+										<li><a href="https://www.zhihu.com/" target="_blank">ZhiHu web</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+		</div>
+		
+		
+		<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+			<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_1.jpg);">
+				<div class="desc animate-box">
+					<h2>Content of Weibo</h2>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<!-- END fh5co-page -->
+
+	<div id="fh5co-page">
+		<div id="fh5co-header">
+			<header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+						<h1 id="fh5co-logo"><a href="index.html">topic and advice</a></h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+								<li>
+									<a href="index.html">Home</a>
+								</li>
+								<li class="active">
+									<a href="listing.html" class="fh5co-sub-ddown">Listing</a>
+									<ul class="fh5co-sub-menu">
+										<li><a href="weibo.html" >WeiBo</a></li>
+										<li><a href="zhihu.html" >ZhiHu</a></li>
+									</ul>
+								</li>
+								<li class="active">
+									<a href="listing.html" class="fh5co-sub-ddown">Web</a>
+									<ul class="fh5co-sub-menu">
+										<li><a href="https://weibo.com/" target="_blank">WeiBo web</a></li>
+										<li><a href="https://www.zhihu.com/" target="_blank">ZhiHu web</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+		</div>
+		<header id="fh5co-">
+		<!--content begin-->
+		<br><br><br><br>
+		<!--first-->
+        <h2 align="center" color="#FFFFFF"><i>微博的前五十话题的热度值</i></h2>
+        <hr width="95%">
+        <a  align="center" href="./weibo.csv">table(csv download)</a>
+        <div align="center" id="div1">
+            <img src="images/WeiBoResult.jpg" width="1000px" alt="话题热度图" id="wb1">
+        </div>
+		<br><br><br><br>
+       <!--table-->
+        <table align="center" border="1px" width="50%" color="#FFFFFF">
+                <tr>
+                    <th>前五热度话题</th>
+                    <th>话题名称</th>
+                </tr>
+    
+                <tr>
+                    <td>1</td>
+                    <td>张小斐王嘉尔 又一对豪门姐弟</td>
+                </tr>
+    
+                <tr>
+                    <td>2</td>
+                    <td>明年我国将全面普及道路客运电子客票</td>
+                </tr>
+    
+                <tr>
+                    <td>3</td>
+                    <td>创4哥哥的稳嫩时刻</td>
+                </tr>
+    
+                <tr>
+                    <td>4</td>
+                    <td>白敬亭说马思纯咬了他一口</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>周深不吃土豆丝的原因</td>
+                </tr>
+        </table>
+    
+		<br><br>
+		
+		<hr color="#FFFFFF">
+
+
+		
+        <!--second-->
+        <br><br>
+        <h1 align="center" color="aquamarine"><i>前一百条微博关键词提取</h1>
+        <hr color="#FFFFFF" width="95%"> <br><br>
+        <div align="center" id="div1">
+            <img src="images/reci.png" width="400px" alt="热词图" id="wb2">
+	    </div>
+		<br><br><br>
+		<div align="center" id="div1">
+			<img src="images/reci2.jpg" width="500px" alt="热词图" id="wb3">
+	    </div>
+            <!--内容部分结束-->
+
+			<span><a class="btn btn-primary btn-lg" href="index.html">go back</a></span>
+        <!-- END fh5co-page -->
+        
+
+
+	</div>
+	<!-- END fh5co-wrapper -->
+
+
+
+
+
+
+
+
+    
+	
+     
+
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Stellar -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Superfish -->
+	<script src="js/hoverIntent.js"></script>
+	<script src="js/superfish.js"></script>
+	<!-- Main JS -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+
