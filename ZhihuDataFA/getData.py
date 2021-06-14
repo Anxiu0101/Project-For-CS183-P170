@@ -3,6 +3,7 @@ import mechanize
 import csv
 import json
 import sys
+import os
 from bs4 import BeautifulSoup
 
 if len(sys.argv) != 2: #comfire console arguments is correct
@@ -21,7 +22,7 @@ data = json.loads(doc) #parse json
 
 # wb = xlsxwriter.Workbook(sys.argv[1]) #create the target file by given filename
 # ws = wb.add_worksheet('Sheet 1')
-f = open(sys.argv[1], 'w', encoding='utf_8')
+f = open(os.path.join(sys.argv[1], 'zhihu.csv'), 'w', encoding='utf_8')
 ws = csv.writer(f)
 # i = 0 #the row needs to write
 ws.writerow(['id', 'answer_count', 'hot_score', 'title', 'desc']) #table header
