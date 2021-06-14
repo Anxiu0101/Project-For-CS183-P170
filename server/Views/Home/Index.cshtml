@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- this style when the mouse over the picture which will be more larger -->
+<style type="text/css">
+    #div1 img {
+        cursor: pointer;
+        transition: all 0.6s;
+        overflow: hidden;
+    }
+
+    #div1 img:hover {
+        transform: scale(1.2);
+    }
+</style>
+
+<div class="fh5co-hero">
+    <div class="fh5co-overlay"></div>
+    <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5"
+        style="background-image: url(images/cover_bg_1.jpg);">
+        <div class="desc animate-box">
+            <h2>Choose one you like in below</h2>
+            <!-- <span>Lovely Crafted by <a href="http://sc.chinaz.com/" target="_blank" class="fh5co-site-name"></a></span> -->
+            <span>
+                <p class="btn btn-primary btn-lg"><a href="listing.html">Get Started</a></p>
+            </span>
+        </div>
+    </div>
+</div>
+<!-- 微博和知乎图片超链接 以及github二维码-->
+<div class="fh5co-listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 fh5co-item-wrap">
+                <a class="fh5co-listing-item" href="weibo.html">
+                    <img src="~/images/img-1.jpg" alt="微博图" class="img-responsive">
+                    <div class="fh5co-listing-copy">
+                        <h2>Weibo</h2>
+                        <span class="icon">
+                            <i class="icon-chevron-right"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 col-sm-4 fh5co-item-wrap">
+                <a class="fh5co-listing-item" href="javascript:;">
+                    <img src="~/images/QRcode.png" alt="二维码" class="img-responsive">
+                    <div class="fh5co-listing-copy">
+                        <h2>acquire code please scan the QR code to github</h2>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 col-sm-4 fh5co-item-wrap">
+                <a class="fh5co-listing-item" href="zhihu.html">
+                    <img src="~/images/img-3.jpg" alt="知乎图" class="img-responsive">
+                    <div class="fh5co-listing-copy">
+                        <h2>Zhihu</h2>
+                        <span class="icon">
+                            <i class="icon-chevron-right"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- END 3 row -->
+
+
+        </div>
+    </div>
+</div>
+
+<!-- clear float -->
+<div style="clear:both"></div>
+<div class="fh5co-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 fh5co-news">
+                <br>
+                <h3>Data of Weibo</h3>
+                <ul>
+                    <li>
+                        <a href="weibo.html"><!--TODO: Make it changable! -->
+                            <span class="fh5co-date">Jun. 1, 2021</span>
+                            <h3>Newly presentation of Weibo</h3>
+                            <p>Hotspot ranking</p>
+                        </a>
+                    </li>
+                </ul>
+                <br><br>
+                <h3>Data of Zhihu</h3>
+                <ul>
+                    <li>
+                        <a href="zhihu.html">
+                            <span class="fh5co-date">Jun. 1, 2021</span>
+                            <h3>Newly presentation of ZhiHu</h3>
+                            <p>Hotspot ranking and Answer</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- class="img-responsive mb20" -->
+            <div class="col-md-6 fh5co-testimonial" id="div1">
+                <a href="weibo.html#wb1" class="fh5co-listing-item"><!-- auto update the link -->
+                    <img src="images/WeiBoResult.jpg" alt="微博结果" class="img-responsive mb20">
+                    <div id="wenzi">To the picture</div>
+                </a>
+                <br><br><br>
+                <table>
+                    <tr>
+                        <td><a href="zhihu.html#zh1">
+                                <img src="images/知乎回复.JPG" alt="知乎回复" height="200px">
+                                <div>
+                                    <h8><br></h8>To the picture
+                                </div>
+                            </a></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td><a href="zhihu.html#zh2">
+                                <img src="images/知乎回复饼图.JPG" alt="知乎回复饼图" height="200px">
+                                <div>
+                                    <h8><br></h8>To the picture
+                                </div>
+                            </a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
