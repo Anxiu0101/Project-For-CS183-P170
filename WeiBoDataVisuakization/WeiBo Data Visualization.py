@@ -2,9 +2,14 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import pandas as pd
 import numpy as np
+import sys
+import os
+
+if(len(sys.argv) != 2):
+    exit(-1)
 
 # matplotlib.rcParams['font.style'] = 'italic'
-WeiBo = pd.read_csv('weibo.csv', header=1,
+WeiBo = pd.read_csv(os.path.join(sys.argv[1], 'weibo.csv'), header=1,
                     names=["rank", "topic", "hotValue"])
 print(WeiBo)
 print(WeiBo.info())
@@ -46,6 +51,6 @@ for i in n:
 # store the picture and show
 plt.axis('equal')
 plt.tight_layout()
-plt.savefig('./WeiBoResult.jpg')
-plt.show()
-plt.close()
+plt.savefig(os.path.join(sys.argv[1], './WeiBoResult.jpg'))
+# plt.show()
+# plt.close()
