@@ -18,8 +18,12 @@ Date: 2021-6-6
 # PyQuery用来爬取微博热搜版的界面以及解析下载下来的html文件
 # csv用于数据导入到csv表格方便数据的存储
 if __name__ == '__main__':
-    localtime = time.strftime('%Y-%m-%d', time.localtime(time.time()))
-    path = os.path.join("..\\CS183ProjectP170", localtime)
+    if(len(sys.argv) != 2): # ensure only ONE path be given via console 
+        print("Argument Error")
+        exit(-1)
+
+    localtime = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))
+    path = os.path.join(sys.argv[1], localtime)
     os.makedirs(path)
     html = pq("https://s.weibo.com/top/summary/")
     # 讲微博热搜的html源码下载解析
@@ -65,9 +69,9 @@ if __name__ == '__main__':
             max_words=1000,
         )
         # 设置云图的格式
-        wc.generate(word1)
-        wc.to_file(os.path.join(path, '第一张微博词云' + localtime + '.png'))
+        wc.generate(word1) # modified so that the path can be given external
+        wc.to_file(os.path.join(path, 'Weibo1.png'))
         wc.generate(word2)
-        wc.to_file(os.path.join(path, '第二张微博词云' + localtime + '.png'))
+        wc.to_file(os.path.join(path, 'Weibo2.png'))
         # 分别生成并保存图片
         f.close()
