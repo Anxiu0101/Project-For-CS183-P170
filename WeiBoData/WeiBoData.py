@@ -9,7 +9,9 @@ from wordcloud import WordCloud
 import csv
 import jieba
 import os
-import time
+import sys
+
+# import time
 '''
 Author: Xueyi.Chen
 Date: 2021-6-6
@@ -22,9 +24,10 @@ if __name__ == '__main__':
         print("Argument Error")
         exit(-1)
 
-    localtime = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))
-    path = os.path.join(sys.argv[1], localtime)
-    os.makedirs(path)
+    # localtime = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))
+    # path = os.path.join(sys.argv[1], localtime)
+    path = sys.argv[1]
+    # os.makedirs(path)
     html = pq("https://s.weibo.com/top/summary/")
     # 讲微博热搜的html源码下载解析
     headers = ['排名', '热搜', '热度']
