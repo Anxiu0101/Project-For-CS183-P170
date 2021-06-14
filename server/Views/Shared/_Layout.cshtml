@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SMSA</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="shortcut icon" href="~/images/favicon.ico" />
+    <link rel="shortcut icon" href="~/favicon.ico" />
     <link rel="stylesheet" href="~/css/animate.css" />
     <link rel="stylesheet" href="~/css/icomoon.css" />
     <link rel="stylesheet" href="~/css/superfish.css" />
@@ -22,45 +22,51 @@
 </head>
 
 <body>
-    <div id="fh5co-wrapper">
-        <div id="fh5co-page">
-            <div id="fh5co-header">
-                <header id="fh5co-header-section">
-                    <div class="container">
-                        <div class="nav-header">
-                            <h1 id="fh5co-logo"><a href="index.html">SMSA</a></h1>
-                            <!-- START #fh5co-menu-wrap -->
-                            <nav id="fh5co-menu-wrap" role="navigation">
-                                <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li class="active">
-                                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                    </li>
-                                    <li class="active">
-                                        <a asp-area="" asp-controller="Choronicle" asp-action="List" class="fh5co-sub-ddown">Choronicle</a>
-                                        <ul class="fh5co-sub-menu">
-                                            <li><a asp-area="" asp-controller="Choronicle" asp-action="ListWeibo" >WeiBo</a></li>
-                                            <li><a asp-area="" asp-controller="Choronicle" asp-action="ListZhihu" >ZhiHu</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="active">
-                                        <a href="listing.html" class="fh5co-sub-ddown">Source Website</a>
-                                        <ul class="fh5co-sub-menu">
-                                            <li><a href="https://weibo.com/" target="_blank">WeiBo</a></li>
-                                            <li><a href="https://www.zhihu.com/" target="_blank">ZhiHu</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+    <div id="fh5co-page">
+        <div id="fh5co-header">
+            <header id="fh5co-header-section">
+                <div class="container">
+                    <div class="nav-header">
+                        <h1 id="fh5co-logo"><a asp-area="" asp-controller="Home" asp-action="Index">SMSA</a></h1>
+                        <!-- START #fh5co-menu-wrap -->
+                        <nav id="fh5co-menu-wrap" role="navigation">
+                            <ul class="sf-menu" id="fh5co-primary-menu">
+                                <li class="active">
+                                    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="active">
+                                    <a asp-area="" asp-controller="Choronicle" asp-action="List"
+                                        class="fh5co-sub-ddown">Choronicle</a>
+                                    <ul class="fh5co-sub-menu">
+                                        <li><a asp-area="" asp-controller="Choronicle" asp-action="ListWeibo">WeiBo</a>
+                                        </li>
+                                        <li><a asp-area="" asp-controller="Choronicle" asp-action="ListZhihu">ZhiHu</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="active">
+                                    <a href="listing.html" class="fh5co-sub-ddown">Source Website</a>
+                                    <ul class="fh5co-sub-menu">
+                                        <li><a href="https://weibo.com/" target="_blank">WeiBo</a></li>
+                                        <li><a href="https://www.zhihu.com/" target="_blank">ZhiHu</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
-                </header>
+                </div>
+            </header>
+        </div>
+        <div style="height: 6rem"></div>
+        <div class="fh5co-section">
+            <div class="container">
+                @RenderBody()
             </div>
-            @RenderBody()
-        </div><!-- END fh5co-page -->
-    </div><!-- END fh5co-wrapper -->
+        </div>
+    </div><!-- END fh5co-page -->
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container" style="height: 1.5rem">
             &copy; 2021 - SMSA
         </div>
     </footer>

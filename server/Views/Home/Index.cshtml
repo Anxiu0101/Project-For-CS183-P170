@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_CoverLayout.cshtml";
 }
 
 <!-- this style when the mouse over the picture which will be more larger -->
@@ -18,12 +19,13 @@
 <div class="fh5co-hero">
     <div class="fh5co-overlay"></div>
     <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5"
-        style="background-image: url(images/cover_bg_2.jpg);">
+        style="background-image: url(/images/cover_bg_2.jpg);">
         <div class="desc animate-box">
             <h2>Internet Social Media Search and Tendency Analyzer</h2>
             <!-- <span>Lovely Crafted by <a href="http://sc.chinaz.com/" target="_blank" class="fh5co-site-name"></a></span> -->
             <span>
-                <p class="btn btn-primary btn-lg"><a href="listing.html">What's this?</a></p>
+                <p> <a asp-area="" asp-controller="Home" asp-action="About" class="btn btn-primary btn-lg">What's
+                        this?</a></p>
             </span>
         </div>
     </div>
@@ -82,7 +84,8 @@
                 <h3>Data of Weibo</h3>
                 <ul>
                     <li>
-                        <a href="weibo.html"><!--TODO: Make it changable! -->
+                        <a href="weibo.html">
+                            <!--TODO: Make it changable! -->
                             <span class="fh5co-date">Jun. 1, 2021</span>
                             <h3>Newly presentation of Weibo</h3>
                             <p>Hotspot ranking</p>
@@ -103,7 +106,8 @@
             </div>
             <!-- class="img-responsive mb20" -->
             <div class="col-md-6 fh5co-testimonial" id="div1">
-                <a href="weibo.html#wb1" class="fh5co-listing-item"><!-- auto update the link -->
+                <a href="weibo.html#wb1" class="fh5co-listing-item">
+                    <!-- auto update the link -->
                     <img src="images/WeiBoResult.jpg" alt="微博结果" class="img-responsive mb20">
                     <div id="wenzi">To the picture</div>
                 </a>
