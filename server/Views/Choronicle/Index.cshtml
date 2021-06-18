@@ -1,0 +1,36 @@
+@model IEnumerable<server.Models.ChoronicleRecord>
+
+@{
+    ViewData["Title"] = "Choronicle";
+}
+
+<h1>All Fetched Data</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecordedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type.ToString())
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">View Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

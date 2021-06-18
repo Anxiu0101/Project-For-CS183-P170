@@ -1,0 +1,39 @@
+@model server.Models.ChoronicleRecord
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<hr />
+<div>
+    <h2>Choronicle Record of @Model.Type.ToString() at @Html.DisplayFor(model => model.RecordedTime)</h2>
+    <hr />
+    <h3>The most popular topics on @Model.Type.ToString()</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 60%">Topic</th>
+                <th style="width: 10%">Hot Value</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.Topics) {
+                <tr>
+                    <th>@Html.DisplayFor(i => item.Topic)</th>
+                    <th>@Html.DisplayFor(i => item.HotScore)</th>
+                    <th>@* <a asp-action="TopicDetial">Detail</a> | *@
+                        <a asp-controller="Topic" asp-action="Search" asp-route-id="@item.Id">
+                            Focus
+                        </a>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Download" asp-route-id="@Model.Id">Download Raw Data</a> |
+    <a class="btn btn-primary btn-lg" asp-action="Index">Back to List</a>
+</div>

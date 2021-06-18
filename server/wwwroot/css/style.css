@@ -1037,4 +1037,7 @@ figure {
   background: url(../images/hourglass.svg) center no-repeat #222222;
 }
 
+table {
+  color: #848484;
+}
 /*# sourceMappingURL=style.css.map */

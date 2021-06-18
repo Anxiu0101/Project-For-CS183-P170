@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using server.Data;
 
 namespace server
 {
@@ -24,6 +26,9 @@ namespace server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<FetchedDataContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("SMSAMain")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
