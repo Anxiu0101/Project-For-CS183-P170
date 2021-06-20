@@ -96,6 +96,6 @@
 </div>
 <div>
     <a @* asp-action="Download" asp-route-id="@Model.Id" *@
-        href="~/data/@Date/@(Model.Type.ToString().ToLower()).csv">Download Raw Data</a> |
+        href="/data/@Date/@(Model.Type.ToString().ToLower()).csv">Download Raw Data</a> |
     <a class="btn btn-primary btn-lg" asp-action="Index">Back to List</a>
 </div>
