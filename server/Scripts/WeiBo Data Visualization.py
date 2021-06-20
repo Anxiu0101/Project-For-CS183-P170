@@ -8,11 +8,15 @@ import os
 if(len(sys.argv) != 2):
     exit(-1)
 
-# matplotlib.rcParams['font.style'] = 'italic'
-WeiBo = pd.read_csv(os.path.join(sys.argv[1], 'weibo.csv'), header=1,
+# Read the csv file about the information of WeiBo hotspot
+UnprocessedWeiBo = pd.read_csv(os.path.join(sys.argv[1], 'weibo.csv'), header=1,
                     names=["rank", "topic", "hotValue"])
+print(UnprocessedWeiBo)
+print(UnprocessedWeiBo.info())
+
+# Solve the error data
+WeiBo = UnprocessedWeiBo.dropna(axis=0, how='any')
 print(WeiBo)
-print(WeiBo.info())
 
 # Some initialization setting
 plt.rcParams["font.family"] = "STSong"
