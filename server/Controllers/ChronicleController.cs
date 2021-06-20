@@ -40,7 +40,7 @@ namespace server.Controllers
             IQueryable<ChronicleRecord> rst;
             if (typ != ChronicleRecordType.All) rst = _context.ChronicleRecords.Where(i => i.Type == typ);
             else rst = _context.ChronicleRecords;
-            rst.OrderBy(i => i.RecordedTime);
+            rst.OrderByDescending(i => i.RecordedTime);
             return View(await rst.ToListAsync());
         }
 
