@@ -39,7 +39,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-4 fh5co-item-wrap">
-                <a class="fh5co-listing-item" asp-controller="Choronicle" asp-route-type="Weibo">
+                <a class="fh5co-listing-item" asp-controller="Chronicle" asp-route-type="Weibo">
                     <img src="~/images/img-1.jpg" alt="微博图" class="img-responsive">
                     <div class="fh5co-listing-copy">
                         <h2>Weibo</h2>
@@ -88,7 +88,7 @@
                 <h3>Data of Weibo</h3>
                 <ul>
                     <li>
-                        <a href="weibo.html">
+                        <a asp-controller="Chronicle" asp-action="Details" asp-route-id="@Model.WeiboId">
                             <!--TODO: Make it changable! -->
                             <span class="fh5co-date">@Model.WeiboLast.ToString("yyyy/MM/dd HH:mm")</span>
                             <h3>Newly presentation of Weibo</h3>
@@ -100,7 +100,7 @@
                 <h3>Data of Zhihu</h3>
                 <ul>
                     <li>
-                        <a href="zhihu.html">
+                        <a asp-controller="Chronicle" asp-action="Details" asp-route-id="@Model.ZhihuId">
                             <span class="fh5co-date">@Model.ZhihuLast.ToString("yyyy/MM/dd HH:mm")</span>
                             <h3>Newly presentation of ZhiHu</h3>
                             <p>Hotspot ranking and Answer</p>
@@ -110,24 +110,24 @@
             </div>
             <!-- class="img-responsive mb20" -->
             <div class="col-md-6 fh5co-testimonial" id="div1">
-                <a asp-controller="Choronicle" asp-route-id="@Model.WeiboId" asp-fragment="wbresult" class="fh5co-listing-item">
+                <a asp-controller="Chronicle" asp-action="Details" asp-route-id="@Model.WeiboId" asp-fragment="wbresult" class="fh5co-listing-item">
                     <!-- auto update the link -->
-                    <img src="~/data/@weibostr/WeiBoResult.jpg" alt="Weibo Result" class="img-responsive mb20">
+                    <img src="~/data/@weibostr/WeiBoResult.jpg" alt="Weibo Result" height="200px" class="img-responsive mb20">
                     <div id="wenzi">To the picture</div>
                 </a>
                 <br><br><br>
                 <table>
                     <tr>
-                        <td><a asp-controller="Choronicle" asp-route-id="@Model.ZhihuId" asp-fragment="zhreply">
-                                <img src="~/data/@zhihustr/zhihu_reply.JPG" alt="Zhihu replies" height="200px">
+                        <td><a asp-controller="Chronicle" asp-action="Details" asp-route-id="@Model.ZhihuId" asp-fragment="zhreply">
+                                <img src="~/data/@zhihustr/zhihu_reply.png" alt="Zhihu replies" height="200px">
                                 <div>
                                     <h8><br></h8>To the picture
                                 </div>
                             </a></td>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
-                        <td><a asp-controller="Choronicle" asp-route-id="@Model.ZhihuId" asp-fragment="zhhot">
-                                <img src="~/data/@zhihustr/zhihu_hot.JPG" alt="Zhihu hot questions" height="200px">
+                        <td><a asp-controller="Chronicle" asp-action="Details" asp-route-id="@Model.ZhihuId" asp-fragment="zhhot">
+                                <img src="~/data/@zhihustr/zhihu_hot.png" alt="Zhihu hot questions" height="200px">
                                 <div>
                                     <h8><br></h8>To the picture
                                 </div>

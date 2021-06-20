@@ -8,7 +8,7 @@ namespace server.Data
         public FetchedDataContext(DbContextOptions<FetchedDataContext> options)
             : base(options) { }
         
-        public DbSet<ChoronicleRecord> ChoronicleRecords { get; set; }
+        public DbSet<ChronicleRecord> ChronicleRecords { get; set; }
 
         public DbSet<TopicEntry> TopicEntries { get; set; }
     }

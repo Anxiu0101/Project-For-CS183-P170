@@ -6,14 +6,11 @@
 
 <h1>Topic</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.ChronicleRecord.RecordedTime)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Topic)
@@ -25,7 +22,7 @@
                 @Html.DisplayNameFor(model => model.HotScore)
             </th>
             @* <th>
-                @Html.DisplayNameFor(model => model.ChoronicleRecordId)
+                @Html.DisplayNameFor(model => model.ChronicleRecordId)
             </th> *@
             <th></th>
         </tr>
@@ -34,7 +31,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.ChronicleRecord.RecordedTime)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Topic)
@@ -46,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.HotScore)
             </td>
             @* <td>
-                @Html.DisplayFor(modelItem => item.ChoronicleRecordId)
+                @Html.DisplayFor(modelItem => item.ChronicleRecordId)
             </td> *@
             <td>
                 @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

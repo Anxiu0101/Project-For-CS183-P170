@@ -1,4 +1,4 @@
-@model server.Models.ChoronicleRecord
+@model server.Models.ChronicleRecord
 
 @{
     ViewData["Title"] = "Details";
@@ -13,7 +13,8 @@
     }
 
     .img-box img {
-        margin: auto;
+        width: 80%;
+        margin: 1rem auto;
         cursor: pointer;
         transition: all 0.6s;
     }
@@ -27,11 +28,12 @@
 <h1>Details</h1>
 <hr />
 <div>
-    <h2>Choronicle Record of @Model.Type.ToString() at @Html.DisplayFor(model => model.RecordedTime)</h2>
+    <h2>Chronicle Record of @Model.Type.ToString() at @Html.DisplayFor(model => model.RecordedTime)</h2>
     <hr />
     <h3>The Data Visualization</h3>
-    @if (Model.Type == ChoronicleRecordType.Weibo) @*Output for weibo.*@
+    @if (Model.Type == ChronicleRecordType.Weibo) @*Output for weibo.*@
     {
+        <a name="wbresult" />
         <div class="img-box">
             <img src="~/data/@Date/WeiBoResult.jpg" />
         </div>
@@ -45,9 +47,11 @@
     }
     else
     {@* For now, only zhihu and weibo need to handle. *@
+        <a name="zhreply" />
         <div class="img-box">
             <img src="~/data/@Date/zhihu_reply.png" />
         </div>
+        <a name="zhhot" />
         <div class="img-box">
             <img src="~/data/@Date/zhihu_hot.png" />
         </div>

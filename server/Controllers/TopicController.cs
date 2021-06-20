@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using server.Data;
 using server.Models;
 
@@ -22,24 +23,25 @@ namespace server.Controllers
             if(string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type))
                 return NotFound();
             
-            ChoronicleRecordType typ = ChoronicleRecordType.Unkown;
+            ChronicleRecordType typ = ChronicleRecordType.Unkown;
             switch (type.ToUpper())
             {
                 case "ZHIHU":
-                    typ = ChoronicleRecordType.Zhihu;
+                    typ = ChronicleRecordType.Zhihu;
                     break;
                 case "WEIBO":
-                    typ = ChoronicleRecordType.Weibo;
+                    typ = ChronicleRecordType.Weibo;
                     break;
                 case "ALL":
-                    typ = ChoronicleRecordType.All;
+                    typ = ChronicleRecordType.All;
                     break;
             }
             
             var results = _context.TopicEntries
-                .Where(e => e.ChoronicleRecord.Type == typ)
                 .Where(e => e.Topic == name)
-                .OrderByDescending(e => e.ChoronicleRecord.RecordedTime)
+                .Include(e => e.ChronicleRecord)
+                .Where(e => e.ChronicleRecord.Type == typ)
+                .OrderByDescending(e => e.ChronicleRecord.RecordedTime)
                 .ToList();
 
             return View(results);

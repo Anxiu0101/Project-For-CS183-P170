@@ -23,10 +23,10 @@ namespace server.Controllers
 
         public IActionResult Index()
         {
-            var data = _context.ChoronicleRecords
+            var data = _context.ChronicleRecords
                 .OrderByDescending(r => r.RecordedTime);
-            var weibo = data.First(r => r.Type == ChoronicleRecordType.Weibo);
-            var zhihu = data.First(r => r.Type == ChoronicleRecordType.Zhihu);
+            var weibo = data.First(r => r.Type == ChronicleRecordType.Weibo);
+            var zhihu = data.First(r => r.Type == ChronicleRecordType.Zhihu);
             var model = new HomeViewModel()
             {
                 WeiboId = weibo.Id,

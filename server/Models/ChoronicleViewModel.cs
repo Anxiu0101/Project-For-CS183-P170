@@ -4,8 +4,8 @@ using server.Data;
 
 namespace server.Models
 {
-    class ChoronicleViewModel
+    class ChronicleViewModel
     {
-        public ChoronicleRecord[] Records { get; set; }
+        public ChronicleRecord[] Records { get; set; }
     }
 }

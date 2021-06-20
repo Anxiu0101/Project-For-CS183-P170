@@ -10,37 +10,37 @@ using server.Models;
 
 namespace server.Controllers
 {
-    public class ChoronicleController : Controller
+    public class ChronicleController : Controller
     {
         private readonly FetchedDataContext _context;
 
-        public ChoronicleController(FetchedDataContext context)
+        public ChronicleController(FetchedDataContext context)
         {
             _context = context;
         }
 
-        // GET: Choronicle
+        // GET: Chronicle
         public async Task<IActionResult> Index(string type)
         {
             if (string.IsNullOrEmpty(type)) type = "ALL";
             var nt = type.ToUpper();
-            ChoronicleRecordType typ;
+            ChronicleRecordType typ;
             switch (nt)
             {
                 case "ZHIHU":
-                    typ = ChoronicleRecordType.Zhihu;
+                    typ = ChronicleRecordType.Zhihu;
                     break;
                 case "WEIBO":
-                    typ = ChoronicleRecordType.Weibo;
+                    typ = ChronicleRecordType.Weibo;
                     break;
                 default:
-                    typ = ChoronicleRecordType.All;
+                    typ = ChronicleRecordType.All;
                     break;
             }
-            IQueryable<ChoronicleRecord> rst;
-            if (typ != ChoronicleRecordType.All) rst = _context.ChoronicleRecords.Where(i => i.Type == typ);
-            else rst = _context.ChoronicleRecords;
-            rst.OrderByDescending(i => i.RecordedTime);
+            IQueryable<ChronicleRecord> rst;
+            if (typ != ChronicleRecordType.All) rst = _context.ChronicleRecords.Where(i => i.Type == typ);
+            else rst = _context.ChronicleRecords;
+            rst.OrderBy(i => i.RecordedTime);
             return View(await rst.ToListAsync());
         }
 
@@ -49,7 +49,7 @@ namespace server.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Choronicle/Details/5
+        // GET: Chronicle/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -57,17 +57,17 @@ namespace server.Controllers
                 return NotFound();
             }
 
-            var choronicleRecord = await _context.ChoronicleRecords
+            var ChronicleRecord = await _context.ChronicleRecords
                 .Where(r => r.Id == id)
                 .Include(r => r.Topics
                     .OrderByDescending(t => t.HotScore))
                 .FirstOrDefaultAsync();
-            if (choronicleRecord == null)
+            if (ChronicleRecord == null)
             {
                 return NotFound();
             }
 
-            return View(choronicleRecord);
+            return View(ChronicleRecord);
         }
 
         public IActionResult ListZhihu()

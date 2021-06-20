@@ -15,7 +15,7 @@ namespace server.Data
         
         public int HotScore { get; set; }
 
-        public ChoronicleRecord ChoronicleRecord { get; set; }
-        public int ChoronicleRecordId { get; set; }
+        public ChronicleRecord ChronicleRecord { get; set; }
+        public int ChronicleRecordId { get; set; }
     }
 }

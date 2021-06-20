@@ -26,7 +26,7 @@ namespace server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ChoronicleRecordId")
+                    b.Property<int>("ChronicleRecordId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -40,12 +40,12 @@ namespace server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ChoronicleRecordId");
+                    b.HasIndex("ChronicleRecordId");
 
                     b.ToTable("TopicEntries");
                 });
 
-            modelBuilder.Entity("server.Models.ChoronicleRecord", b =>
+            modelBuilder.Entity("server.Models.ChronicleRecord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,21 +60,21 @@ namespace server.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ChoronicleRecords");
+                    b.ToTable("ChronicleRecords");
                 });
 
             modelBuilder.Entity("server.Data.TopicEntry", b =>
                 {
-                    b.HasOne("server.Models.ChoronicleRecord", "ChoronicleRecord")
+                    b.HasOne("server.Models.ChronicleRecord", "ChronicleRecord")
                         .WithMany("Topics")
-                        .HasForeignKey("ChoronicleRecordId")
+                        .HasForeignKey("ChronicleRecordId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ChoronicleRecord");
+                    b.Navigation("ChronicleRecord");
                 });
 
-            modelBuilder.Entity("server.Models.ChoronicleRecord", b =>
+            modelBuilder.Entity("server.Models.ChronicleRecord", b =>
                 {
                     b.Navigation("Topics");
                 });

@@ -14,7 +14,7 @@ namespace server.Models
     /// real type, but since the programer want to operate different
     /// data in seperated ways, this attribute was named as 'type'
     /// </remarks>
-    public enum ChoronicleRecordType
+    public enum ChronicleRecordType
     {
         /// <summary>
         /// The data came from ... what the hell?
@@ -35,10 +35,10 @@ namespace server.Models
     }
 
     /// <summary>
-    /// Choronicle records, representing the data fetched
+    /// Chronicle records, representing the data fetched
     /// from websites.
     /// </summary>
-    public class ChoronicleRecord
+    public class ChronicleRecord
     {
         /// <summary>
         /// Record ID
@@ -57,10 +57,10 @@ namespace server.Models
         /// </summary>
         /// <remarks>
         /// Representing this record's data source. <br />
-        /// See also: <seealso cref="ChoronicleRecordType" />
+        /// See also: <seealso cref="ChronicleRecordType" />
         /// </remarks>
         [Display(Name = "Data Source")]
-        public ChoronicleRecordType Type { get; set; }
+        public ChronicleRecordType Type { get; set; }
 
         public List<TopicEntry> Topics{ get; set; }
     }

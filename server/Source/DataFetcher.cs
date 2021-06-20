@@ -32,8 +32,8 @@ namespace server.Source
             _logger.LogInformation("DataFetcherHostedService initialization started.");
             var span = 15 - DateTime.Now.Minute % 15;
             if (span < 0) span += 15;
-            //timer = new Timer(DoFetch, null, TimeSpan.FromMinutes(span), TimeSpan.FromMinutes(15));
-            timer = new Timer(DoFetch, null, TimeSpan.Zero, TimeSpan.FromMinutes(15));
+            timer = new Timer(DoFetch, null, TimeSpan.FromMinutes(span), TimeSpan.FromMinutes(15));
+            // timer = new Timer(DoFetch, null, TimeSpan.Zero, TimeSpan.FromMinutes(15));
             _logger.LogInformation("DataFetcherHostedService initialized.");
             return Task.CompletedTask;
         }
@@ -104,9 +104,9 @@ namespace server.Source
                 using (var prov = _provider.CreateScope())
                 {
                     var ef = prov.ServiceProvider.GetService<FetchedDataContext>();
-                    ef.ChoronicleRecords.AddAsync(new Models.ChoronicleRecord()
+                    ef.ChronicleRecords.AddAsync(new Models.ChronicleRecord()
                     {
-                        Type = Models.ChoronicleRecordType.Weibo,
+                        Type = Models.ChronicleRecordType.Weibo,
                         Topics = topics,
                         RecordedTime = dt
                     });
@@ -138,7 +138,7 @@ namespace server.Source
                 _logger.LogInformation("Visulizing answer ratio...");
                 p.StartInfo.ArgumentList[0] = scrrt + "AnswerCmp.py";
                 p.Start();
-                p.WaitForExit(3000);
+                p.WaitForExit(10000);
                 if (!p.HasExited)
                 {
                     _logger.LogError("Process takes too long, killing...");
@@ -152,7 +152,7 @@ namespace server.Source
                 _logger.LogInformation("Visulizing hot value...");
                 p.StartInfo.ArgumentList[0] = scrrt + "HotCmp.py";
                 p.Start();
-                p.WaitForExit(3000);
+                p.WaitForExit(10000);
                 if (!p.HasExited)
                 {
                     _logger.LogError("Process takes too long, killing...");
@@ -193,9 +193,9 @@ namespace server.Source
                 using (var prov = _provider.CreateScope())
                 {
                     var ef = prov.ServiceProvider.GetService<FetchedDataContext>();
-                    ef.ChoronicleRecords.AddAsync(new Models.ChoronicleRecord()
+                    ef.ChronicleRecords.AddAsync(new Models.ChronicleRecord()
                     {
-                        Type = Models.ChoronicleRecordType.Zhihu,
+                        Type = Models.ChronicleRecordType.Zhihu,
                         Topics = topics,
                         RecordedTime = dt
                     });
