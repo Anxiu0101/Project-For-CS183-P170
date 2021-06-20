@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System.ComponentModel.DataAnnotations;
+using server.Models;
 
 namespace server.Data
 {
@@ -14,7 +15,7 @@ namespace server.Data
         
         public int HotScore { get; set; }
 
-        public FetchedDataContext FetchedDataContext { get; set; }
-        public int FetchedDataContextId { get; set; }
+        public ChoronicleRecord ChoronicleRecord { get; set; }
+        public int ChoronicleRecordId { get; set; }
     }
 }

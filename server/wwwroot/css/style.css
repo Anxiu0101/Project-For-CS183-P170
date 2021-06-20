@@ -118,7 +118,7 @@ figure {
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover {
-    heifght: inherit;
+    height: inherit;
     padding: 3em 0;
   }
 }
@@ -132,7 +132,7 @@ figure {
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover.fh5co-cover_2 {
-    heifght: inherit;
+    height: inherit;
     padding: 3em 0;
   }
 }
@@ -1037,7 +1037,7 @@ figure {
   background: url(../images/hourglass.svg) center no-repeat #222222;
 }
 
-table {
-  color: #848484;
+.table {
+  color: #cacaca;
 }
 /*# sourceMappingURL=style.css.map */

@@ -22,6 +22,7 @@ namespace server.Controllers
         // GET: Choronicle
         public async Task<IActionResult> Index(string type)
         {
+            if (string.IsNullOrEmpty(type)) type = "ALL";
             var nt = type.ToUpper();
             ChoronicleRecordType typ;
             switch (nt)
@@ -37,7 +38,7 @@ namespace server.Controllers
                     break;
             }
             IQueryable<ChoronicleRecord> rst;
-            if(typ != ChoronicleRecordType.All) rst = _context.ChoronicleRecords.Where(i => i.Type == typ);
+            if (typ != ChoronicleRecordType.All) rst = _context.ChoronicleRecords.Where(i => i.Type == typ);
             else rst = _context.ChoronicleRecords;
             rst.OrderByDescending(i => i.RecordedTime);
             return View(await rst.ToListAsync());
@@ -57,7 +58,10 @@ namespace server.Controllers
             }
 
             var choronicleRecord = await _context.ChoronicleRecords
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Where(r => r.Id == id)
+                .Include(r => r.Topics
+                    .OrderByDescending(t => t.HotScore))
+                .FirstOrDefaultAsync();
             if (choronicleRecord == null)
             {
                 return NotFound();

@@ -1,6 +1,10 @@
-﻿@{
+﻿@model server.Models.HomeViewModel;
+
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_CoverLayout.cshtml";
+    var zhihustr = Model.ZhihuLast.ToString("yyyyMMdd_HHmmss");
+    var weibostr = Model.ZhihuLast.ToString("yyyyMMdd_HHmmss");
 }
 
 <!-- this style when the mouse over the picture which will be more larger -->
@@ -35,7 +39,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-4 fh5co-item-wrap">
-                <a class="fh5co-listing-item" href="weibo.html">
+                <a class="fh5co-listing-item" asp-controller="Choronicle" asp-route-type="Weibo">
                     <img src="~/images/img-1.jpg" alt="微博图" class="img-responsive">
                     <div class="fh5co-listing-copy">
                         <h2>Weibo</h2>
@@ -56,7 +60,7 @@
             </div>
 
             <div class="col-md-4 col-sm-4 fh5co-item-wrap">
-                <a class="fh5co-listing-item" href="zhihu.html">
+                <a class="fh5co-listing-item" asp-controller="Chronicle" asp-route-type="Zhihu">
                     <img src="~/images/img-3.jpg" alt="知乎图" class="img-responsive">
                     <div class="fh5co-listing-copy">
                         <h2>Zhihu</h2>
@@ -86,7 +90,7 @@
                     <li>
                         <a href="weibo.html">
                             <!--TODO: Make it changable! -->
-                            <span class="fh5co-date">Jun. 1, 2021</span>
+                            <span class="fh5co-date">@Model.WeiboLast.ToString("yyyy/MM/dd HH:mm")</span>
                             <h3>Newly presentation of Weibo</h3>
                             <p>Hotspot ranking</p>
                         </a>
@@ -97,7 +101,7 @@
                 <ul>
                     <li>
                         <a href="zhihu.html">
-                            <span class="fh5co-date">Jun. 1, 2021</span>
+                            <span class="fh5co-date">@Model.ZhihuLast.ToString("yyyy/MM/dd HH:mm")</span>
                             <h3>Newly presentation of ZhiHu</h3>
                             <p>Hotspot ranking and Answer</p>
                         </a>
@@ -106,24 +110,24 @@
             </div>
             <!-- class="img-responsive mb20" -->
             <div class="col-md-6 fh5co-testimonial" id="div1">
-                <a href="weibo.html#wb1" class="fh5co-listing-item">
+                <a asp-controller="Choronicle" asp-route-id="@Model.WeiboId" asp-fragment="wbresult" class="fh5co-listing-item">
                     <!-- auto update the link -->
-                    <img src="images/WeiBoResult.jpg" alt="微博结果" class="img-responsive mb20">
+                    <img src="~/data/@weibostr/WeiBoResult.jpg" alt="Weibo Result" class="img-responsive mb20">
                     <div id="wenzi">To the picture</div>
                 </a>
                 <br><br><br>
                 <table>
                     <tr>
-                        <td><a href="zhihu.html#zh1">
-                                <img src="images/知乎回复.JPG" alt="知乎回复" height="200px">
+                        <td><a asp-controller="Choronicle" asp-route-id="@Model.ZhihuId" asp-fragment="zhreply">
+                                <img src="~/data/@zhihustr/zhihu_reply.JPG" alt="Zhihu replies" height="200px">
                                 <div>
                                     <h8><br></h8>To the picture
                                 </div>
                             </a></td>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
-                        <td><a href="zhihu.html#zh2">
-                                <img src="images/知乎回复饼图.JPG" alt="知乎回复饼图" height="200px">
+                        <td><a asp-controller="Choronicle" asp-route-id="@Model.ZhihuId" asp-fragment="zhhot">
+                                <img src="~/data/@zhihustr/zhihu_hot.JPG" alt="Zhihu hot questions" height="200px">
                                 <div>
                                     <h8><br></h8>To the picture
                                 </div>

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using server.Data;
 
 namespace server.Migrations
 {
     [DbContext(typeof(FetchedDataContext))]
-    partial class FetchedDataContextModelSnapshot : ModelSnapshot
+    [Migration("20210619134826_UpdateStructure")]
+    partial class UpdateStructure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,11 +28,14 @@ namespace server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ChoronicleRecordId")
+                    b.Property<int?>("ChoronicleRecordId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FetchedDataContextId")
+                        .HasColumnType("int");
 
                     b.Property<int>("HotScore")
                         .HasColumnType("int");
@@ -65,13 +70,9 @@ namespace server.Migrations
 
             modelBuilder.Entity("server.Data.TopicEntry", b =>
                 {
-                    b.HasOne("server.Models.ChoronicleRecord", "ChoronicleRecord")
+                    b.HasOne("server.Models.ChoronicleRecord", null)
                         .WithMany("Topics")
-                        .HasForeignKey("ChoronicleRecordId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChoronicleRecord");
+                        .HasForeignKey("ChoronicleRecordId");
                 });
 
             modelBuilder.Entity("server.Models.ChoronicleRecord", b =>

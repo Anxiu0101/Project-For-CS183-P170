@@ -2,13 +2,66 @@
 
 @{
     ViewData["Title"] = "Details";
+    string Date = Model.RecordedTime.ToString("yyyyMMdd_HHmmss");
 }
+<style type="text/css">
+    .img-box {
+        width: 90%;
+        margin: 2rem auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    .img-box img {
+        margin: auto;
+        cursor: pointer;
+        transition: all 0.6s;
+    }
+
+    .img-box img:hover {
+        margin: auto;
+        transform: scale(1.2);
+    }
+</style>
 
 <h1>Details</h1>
 <hr />
 <div>
     <h2>Choronicle Record of @Model.Type.ToString() at @Html.DisplayFor(model => model.RecordedTime)</h2>
     <hr />
+    <h3>The Data Visualization</h3>
+    @if (Model.Type == ChoronicleRecordType.Weibo) @*Output for weibo.*@
+    {
+        <div class="img-box">
+            <img src="~/data/@Date/WeiBoResult.jpg" />
+        </div>
+        <h4>Words Cloud</h4>
+        <div class="img-box">
+            <img src="~/data/@Date/Weibo1.png" />
+        </div>
+        <div class="img-box">
+            <img src="~/data/@Date/Weibo2.png" />
+        </div>
+    }
+    else
+    {@* For now, only zhihu and weibo need to handle. *@
+        <div class="img-box">
+            <img src="~/data/@Date/zhihu_reply.png" />
+        </div>
+        <div class="img-box">
+            <img src="~/data/@Date/zhihu_hot.png" />
+        </div>
+        <h4>Words Cloud</h4>
+        <h5>Question Words Cloud</h5>
+        <div class="img-box">
+            <img src="~/data/@Date/zhihu_wordcloud.png" />
+        </div>
+        <h5>Question Description Words Cloud</h5>
+        <div class="img-box">
+            <img src="~/data/@Date/zhihu_wordcloud2.png" />
+        </div>
+    }
+    <hr style="margin: 0 auto; width:80%" />
     <h3>The most popular topics on @Model.Type.ToString()</h3>
     <table class="table">
         <thead>
@@ -19,13 +72,17 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var item in Model.Topics) {
+            @foreach (var item in Model.Topics)
+            {
                 <tr>
                     <th>@Html.DisplayFor(i => item.Topic)</th>
                     <th>@Html.DisplayFor(i => item.HotScore)</th>
                     <th>@* <a asp-action="TopicDetial">Detail</a> | *@
-                        <a asp-controller="Topic" asp-action="Search" asp-route-id="@item.Id">
-                            Focus
+                        <a asp-controller="Topic"
+                            asp-action="Search"
+                            asp-route-name="@item.Topic"
+                            asp-route-type="@Model.Type.ToString()">
+                            Trace
                         </a>
                     </th>
                 </tr>

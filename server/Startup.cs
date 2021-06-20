@@ -29,6 +29,8 @@ namespace server
 
             services.AddDbContext<FetchedDataContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("SMSAMain")));
+
+            services.AddHostedService<server.Source.DataFetcherHostedService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
