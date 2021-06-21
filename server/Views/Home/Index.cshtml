@@ -52,10 +52,7 @@
 
             <div class="col-md-4 col-sm-4 fh5co-item-wrap">
                 <a class="fh5co-listing-item" href="javascript:;">
-                    <img src="~/images/QRcode.png" alt="二维码" class="img-responsive">
-                    <div class="fh5co-listing-copy">
-                        <h2>Scan the QR code to get source code</h2>
-                    </div>
+                    <img src="~/images/img-2.png" alt="plz select a site for view!" class="img-responsive">
                 </a>
             </div>
 
@@ -88,7 +85,10 @@
                 <h3>Data of Weibo</h3>
                 <ul>
                     <li>
-                        <a asp-controller="Chronicle" asp-action="Details" asp-route-id="@Model.WeiboId">
+                        <a asp-controller="Chronicle"
+                            asp-action="Details"
+                            asp-route-id="@Model.WeiboId"
+                            asp-fragment="hotr">
                             <span class="fh5co-date">@Model.WeiboLast.ToString("yyyy/MM/dd HH:mm")</span>
                             <h3>Newly presentation of Weibo</h3>
                             <p>Hotspot ranking</p>
@@ -99,10 +99,13 @@
                 <h3>Data of Zhihu</h3>
                 <ul>
                     <li>
-                        <a asp-controller="Chronicle" asp-action="Details" asp-route-id="@Model.ZhihuId">
+                        <a asp-controller="Chronicle"
+                            asp-action="Details"
+                            asp-route-id="@Model.ZhihuId"
+                            asp-fragment="hotr">
                             <span class="fh5co-date">@Model.ZhihuLast.ToString("yyyy/MM/dd HH:mm")</span>
                             <h3>Newly presentation of ZhiHu</h3>
-                            <p>Hotspot ranking and Answer</p>
+                            <p>Hotspot ranking</p>
                         </a>
                     </li>
                 </ul>
